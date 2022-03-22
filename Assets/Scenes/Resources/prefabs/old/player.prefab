@@ -162,7 +162,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8934f7763af9e41ee8845ae14c5473f1, type: 2}
+  - {fileID: 2100000, guid: 28fcac2d9cd9fd04e92e6d6dfc1728be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,6 +209,10 @@ MonoBehaviour:
   main: {fileID: 0}
   node: {fileID: 0}
   ID: 
+  items: 0
+  Products: 0
+  cost: 0
+  pople: 0
 --- !u!222 &3293111932036547018
 CanvasRenderer:
   m_ObjectHideFlags: 0
