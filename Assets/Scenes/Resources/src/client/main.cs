@@ -159,6 +159,6 @@ public class main : MonoBehaviour
     {
         //Invoke("addme", 0);
         world.Update();
-        Invoke("setnodeup", 0.1f);
+        Invoke("setnodeup", 0.4f);
     }
 }

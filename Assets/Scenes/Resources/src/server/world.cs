@@ -30,14 +30,18 @@ public class World
             {
                 node.items[0].amount += Random.Range(0, node.items[0].deviation);
                 node.items[0].amount -= Random.Range(0, node.items[0].decrease);
+                node.items[1].amount += Random.Range(0, node.items[1].deviation);
+                node.items[1].amount -= Random.Range(0, node.items[1].decrease);
+                node.items[2].amount += Random.Range(0, node.items[2].deviation);
+                node.items[2].amount -= Random.Range(0, node.items[2].decrease);
 
-                
+
                 node.update();
 
                 serial.ChangeDispPople(node.ID,node.pople);
-                serial.sendData(0,node.ID, node.items[0].amount);
-                serial.sendData(1,node.ID, node.items[1].amount);
-                serial.sendData(2,node.ID, node.items[2].amount);
+                serial.sendData(2, node.ID, node.items[2].amount);
+                serial.sendData(1, node.ID, node.items[1].amount);
+                serial.sendData(0, node.ID, node.items[0].amount);
 
 
             }
@@ -51,7 +55,7 @@ public class World
             }
 
         }
-        Split();
+        //Split();
     }
 
     private void generation()
@@ -64,24 +68,22 @@ public class World
                 AddNode(i * 5, j * 5);
                 tessst[i, j] = nodes[nodes.Count - 1];
                 
-                int tmp = Random.Range(0, 2);
+                int tmp = Random.Range(0, 3);
                 if (0 == tmp)
                 {
-                    nodes[nodes.Count - 1].items[tmp].deviation = 100;
-                    nodes[nodes.Count - 1].items[1].decrease = 100;
+                    nodes[nodes.Count - 1].items[0].deviation = 20;
+                    nodes[nodes.Count - 1].items[1].decrease = 20;
                 }
                 else if (1 == tmp)
                 {
-                    nodes[nodes.Count - 1].items[tmp].deviation = 100;
-                    nodes[nodes.Count - 1].items[2].decrease = 100;
+                    nodes[nodes.Count - 1].items[1].deviation = 20;
+                    nodes[nodes.Count - 1].items[2].decrease = 20;
                 }
                 else if (2 == tmp)
                 {
-                    nodes[nodes.Count - 1].items[tmp].deviation = 100;
-                    nodes[nodes.Count - 1].items[0].decrease = 100;
+                    nodes[nodes.Count - 1].items[2].deviation = 20;
+                    nodes[nodes.Count - 1].items[0].decrease = 20;
                 }
-                
-
             }
         }
 

@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
         //this.item.text = "" + item;
         Color color = this.SR.color;
         color[po] = (float)((int)items * 0.01);
+        this.SR.color = color;
         this.SR.DOColor(color, 0.1f);
     }
 

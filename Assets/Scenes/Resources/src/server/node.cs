@@ -29,8 +29,8 @@ public class Node
 
         for(int i = 0; i < MAXitem; i++)
         {
-            this.items[i].deviation = 100;
-            this.items[i].decrease = 100;
+            this.items[i].deviation = 0;
+            this.items[i].decrease = 0;
         }
 
         this.ID = Guid.NewGuid().ToString("N");
@@ -57,10 +57,13 @@ public class Node
     {
         foreach (Node node in nodes)
         {
-            if (node.items[0].amount < this.items[0].amount && node.pople > 0)
-            {  
-                node.items[0].amount += 10;
-                this.items[0].amount -= 10;
+            for(int i=0;i< 3;i++)
+            {
+                if (node.items[i].amount < this.items[i].amount && node.pople > 0)
+                {
+                    node.items[i].amount += 10;
+                    this.items[i].amount -= 10;
+                }
             }
         }
     }
