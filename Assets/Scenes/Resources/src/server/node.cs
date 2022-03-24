@@ -59,7 +59,7 @@ public class Node
         {
             for(int i=0;i< 3;i++)
             {
-                if (node.items[i].amount < this.items[i].amount && node.pople > 0)
+                if (node.items[i].amount+10 < this.items[i].amount && node.pople > 0)
                 {
                     node.items[i].amount += 10;
                     this.items[i].amount -= 10;

@@ -55,12 +55,12 @@ public class World
             }
 
         }
-        //Split();
+        Split();
     }
 
     private void generation()
     {
-        int num = 20;
+        int num = 30;
         for (int i = 0; i < num; i++)
         {
             for (int j = 0; j < num; j++)
@@ -68,22 +68,7 @@ public class World
                 AddNode(i * 5, j * 5);
                 tessst[i, j] = nodes[nodes.Count - 1];
                 
-                int tmp = Random.Range(0, 3);
-                if (0 == tmp)
-                {
-                    nodes[nodes.Count - 1].items[0].deviation = 20;
-                    nodes[nodes.Count - 1].items[1].decrease = 20;
-                }
-                else if (1 == tmp)
-                {
-                    nodes[nodes.Count - 1].items[1].deviation = 20;
-                    nodes[nodes.Count - 1].items[2].decrease = 20;
-                }
-                else if (2 == tmp)
-                {
-                    nodes[nodes.Count - 1].items[2].deviation = 20;
-                    nodes[nodes.Count - 1].items[0].decrease = 20;
-                }
+
             }
         }
 
@@ -116,7 +101,7 @@ public class World
         }
     }
     public void AddNode(int x, int y)
-    {
+    {   
 
         nodes.Add(new Node(this));
         nodes[nodes.Count - 1].PosX = x;
@@ -124,8 +109,27 @@ public class World
 
         serial.addnode(nodes[nodes.Count - 1].ID,x,y);
 
-        nodes[nodes.Count - 1].pople = 100;//Random.Range(1, 1000);
-        nodes[nodes.Count - 1].items[0].amount = Random.Range(1, 100);
+        int tmp_item= 50;
+        nodes[nodes.Count - 1].pople = 100;
+        nodes[nodes.Count - 1].items[0].amount = tmp_item;
+        nodes[nodes.Count - 1].items[1].amount = tmp_item;
+        nodes[nodes.Count - 1].items[2].amount = tmp_item;
+        int tmp = Random.Range(0, 3);
+        if (0 == tmp)
+        {
+            nodes[nodes.Count - 1].items[0].deviation = tmp_item;
+            nodes[nodes.Count - 1].items[1].decrease = tmp_item;
+        }
+        else if (1 == tmp)
+        {
+            nodes[nodes.Count - 1].items[1].deviation = tmp_item;
+            nodes[nodes.Count - 1].items[2].decrease = tmp_item;
+        }
+        else if (2 == tmp)
+        {
+            nodes[nodes.Count - 1].items[2].deviation = tmp_item;
+            nodes[nodes.Count - 1].items[0].decrease = tmp_item;
+        }
 
     }
     public void AddPath(Node A,Node B)
