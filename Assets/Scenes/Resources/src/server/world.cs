@@ -8,13 +8,11 @@ public class World
     private serial serial;
     private List<Node> nodes;
     Node[,] tessst;
-    Random r;
     // Start is called before the first frame update
     public void Start(main main)
     {
         this.serial = new serial(main);
         nodes = new List<Node>();
-        r = new Random();
         tessst = new Node[90,90];
     }
 
@@ -118,17 +116,17 @@ public class World
         if (0 == tmp)
         {
             nodes[nodes.Count - 1].items[0].deviation = tmp_item;
-            nodes[nodes.Count - 1].items[1].decrease = tmp_item;
+            nodes[nodes.Count - 1].items[1].decrease = tmp_item - 1;
         }
         else if (1 == tmp)
         {
             nodes[nodes.Count - 1].items[1].deviation = tmp_item;
-            nodes[nodes.Count - 1].items[2].decrease = tmp_item;
+            nodes[nodes.Count - 1].items[2].decrease = tmp_item - 1;
         }
         else if (2 == tmp)
         {
             nodes[nodes.Count - 1].items[2].deviation = tmp_item;
-            nodes[nodes.Count - 1].items[0].decrease = tmp_item;
+            nodes[nodes.Count - 1].items[0].decrease = tmp_item -1;
         }
 
     }
