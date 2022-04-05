@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class main : MonoBehaviour
@@ -13,12 +14,16 @@ public class main : MonoBehaviour
     GameObject prefabOfPath;
 
     public GameObject Canvas;
+
+    public Tilemap tile;
+    public TileBase tile1;
+
     private Text Select_items;//所有
     private Text Select_Products;//生産
     private Text Select_cost;//消費
     private Text Select_pople;//人口    
     private Material mat;
-
+    private tileControll evmt;
 
     private string select_ID;
     private static World world;
@@ -138,7 +143,6 @@ public class main : MonoBehaviour
         world = new World();
         Debug.Log("test:" + world);
         world.Start(this);
-        setnodeup();
 
         Select_items = this.Canvas.transform.GetChild(0).GetComponent<Text>();
         Select_Products = this.Canvas.transform.GetChild(3).GetComponent<Text>();
@@ -146,6 +150,13 @@ public class main : MonoBehaviour
         Select_pople = this.Canvas.transform.GetChild(1).GetComponent<Text>();
         Select_pople = this.Canvas.transform.GetChild(1).GetComponent<Text>();
         mat =this.Canvas.transform.transform.Find("UI_pal").GetComponent<Renderer>().material;
+
+        evmt = new tileControll();
+        evmt.tile = this.tile;
+        evmt.tile1 = this.tile1;
+        evmt.init();
+
+        setnodeup();
     }
 
 
@@ -159,6 +170,8 @@ public class main : MonoBehaviour
     {
         //Invoke("addme", 0);
         world.Update();
-        Invoke("setnodeup", 0.4f);
+        evmt.Update();
+
+        Invoke("setnodeup", 0.1f);
     }
 }
